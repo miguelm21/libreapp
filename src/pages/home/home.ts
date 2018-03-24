@@ -12,12 +12,12 @@ import 'rxjs/add/operator/map';
 export class HomePage {
 
   jwtHelper = new JwtHelper();
-  Email: any;
-  Password: any;
+  mat: any;
+  password: any;
   token;
   error: string;
 
-  private LOGIN_URL = "http://librepaper.com/app/auth";
+  private LOGIN_URL = "http://www.librepaper.com/app/auth";
 
   constructor(
   	public navCtrl: NavController,
@@ -31,7 +31,7 @@ export class HomePage {
     headers.append('Content-Type', 'application/json');
     headers.append('X-Requested-With', 'XMLHttpRequest');
 
-    var credentials = JSON.stringify({email: this.Email, password: this.Password});
+    var credentials = JSON.stringify({mat: this.mat, password: this.password});
     this.http.post(this.LOGIN_URL, credentials, { headers: headers })
       .map(res => res.json())
       .subscribe(
